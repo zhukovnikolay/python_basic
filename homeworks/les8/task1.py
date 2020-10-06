@@ -35,7 +35,9 @@ class Date:
 
     @staticmethod
     def check_date(day, month, year):
-        correct_date = {1: 31, 2: 29, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
+        correct_date = {1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
+        if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
+            correct_date[2] = 29
         if year < 0:
             raise ValueError('Год должен быть больше 0')
         elif month < 1 or month > 12:
@@ -50,5 +52,5 @@ class Date:
 new_date = Date('10-11-2005')
 print(new_date)
 
-new_date = Date('30-02-3001')
+new_date = Date('30-02-2020')
 print(new_date)
